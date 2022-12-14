@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 /* This is leetcode problem 167 - Two Sum II, Input Array Is Sorted
- * Difficulty: Medium. Type: Medium
+ * Difficulty: Medium. Type: Two Pointers 
  * Goal: Given an input array of non-decreasing integers and a target, find the index of two indices where the values 
  * add up to be equal to the target. It is guaranteed to have only one solution.
  * Approach: Since the array is sorted, place two pointers at the start and end.
@@ -14,22 +14,16 @@ using namespace std;
 class Solution {
 public:
 	vector<int> twoSum(vector<int>& numbers, int target) {
-		vector<int> output;
 		int i = 0, j = numbers.size() - 1;
 		while(i < j) {
-			cout << "num[i]: " << numbers[i] << " num[j]: " << numbers[j] << endl;
 			if(numbers[j] + numbers[i] > target) j--;
 			else if(numbers[j] + numbers[i] < target) i++;
-			else {
-				output.push_back(i + 1);
-				output.push_back(j + 1);
-				break;
-			}
+			else return vector<int> {i + 1, j + 1};
 		}
-		return output;
+		return {};
 	}
 };
-int main ()
+int main()
 {
 	vector<int> input = {2,7,11,15};
 	int target;
