@@ -1,1 +1,3 @@
-**/a.out
+**/**/a.out
+**/**/sol/target/
+**/**/sol/Cargo.lock
