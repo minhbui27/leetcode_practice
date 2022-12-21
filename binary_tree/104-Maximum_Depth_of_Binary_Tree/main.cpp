@@ -27,7 +27,7 @@ public:
 		if(!root) return cur-1;
 		int left = helper(cur+1, max, root->left);
 		int right = helper(cur+1, max, root->right);
-		return max;
+		return std::max(left,right);
 	}
 };
 int main ()
