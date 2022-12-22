@@ -19,8 +19,9 @@ struct Solution;
 impl Solution {
     pub fn length_of_longest_substring(s: String) -> i32 {
         let mut max: i32 = 0;
+        // For the case where s = " ", max = 0 - (-1) = 1
         let mut start:i32 = -1;
-        let mut m: [i32;256] = [0;256];
+        let mut m: [i32;256] = [-1;256];
         let s: Vec<char> = s.chars().collect();
         for i in 0..s.len() {
             if m[s[i] as usize] > start {
@@ -33,7 +34,7 @@ impl Solution {
     }
 }
 fn main() {
-    let input = String::from("abcabcbb");
+    let input = String::from(" ");
     let output:i32 = Solution::length_of_longest_substring(input);
     println!("max length of substring = {}",output);
 }
